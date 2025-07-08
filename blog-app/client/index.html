@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + React</title>
+    <script>
+      // Dark mode initialization script
+      (function() {
+        // Check for saved preference first
+        const savedMode = localStorage.getItem('darkMode');
+        // Then check system preference if no saved preference exists
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Apply dark mode if either saved preference is true or (no preference exists and system prefers dark)
+        if (savedMode === 'true' || (savedMode === null && systemPrefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body class="bg-white dark:bg-gray-900 transition-colors duration-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
